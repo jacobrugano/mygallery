@@ -15,17 +15,17 @@
 
 <body class="m-5">
     <div class="container">
-
         <div class="row justify-content-center">
-            <div class="col-md-4">
+                        <!-- To centre the box -->
+            <div class="col-md-5"> <!-- To cover 5 columns -->
                 <a href="{% url 'gallery' %}" class="btn btn-dark my-3">Go Back</a>
+                <!-- url 'gallery'....directs us back to view function gallery -->
                 <div class="card">
-
-
                     <form method='POST' action="" enctype="multipart/form-data">
                         {% csrf_token %}
 
                         <div class="form-group m-3">
+                            <!-- m-3...margin all round -->
                             <label>Description</label>
                             <input required name="description" type="text" placeholder="Enter a description"
                                 class="form-control">
@@ -38,11 +38,13 @@
 
                                 {% for category in categories %}
                                 <option value='{{category.id}}'>{{category.name}}</option>
+                                        <!-- category.name....so that we can display all categories on the dropdown for users -->
+                                        <!-- category.id.......so that we can capture the category selected and send it to the backend-->
                                 {% endfor %}
                             </select>
                         </div>
 
-
+        <!-- To create your own category -->
                         <div class="form-group m-3">
                             <label>Create a new category</label>
                             <input name="category_new" type="text" placeholder="Create a new category"

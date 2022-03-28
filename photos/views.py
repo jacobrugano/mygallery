@@ -18,4 +18,5 @@ def viewPhoto(request, pk):
     return render(request, 'photos/photo.html', {'photo':photo})
 
 def addPhoto(request):
-    return render(request, 'photos/add.html')
+    categories = Category.objects.all() #To query the Database for the photos we are adding
+    return render(request, 'photos/add.html', {'categories':categories})
