@@ -39,7 +39,7 @@
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item"><a>All</a></li>
 
-            <!-- We create a loop to loop through the contents in the Content model -->
+<!-- We create a loop to loop through the contents in the Content model -->
                         {% for category in categories %} 
                         <li class=" list-group-item"> {{category.name}} </li>
                                 <!-- {{category.name}}...to capture the name under the Category model -->
@@ -52,109 +52,31 @@
                 </ul>
             </div>
         </div>
-        <div class="col-md-9">
+                <div class="col-md-9">
             <div class="row">
-                    <div class="col-md-4">
-                        <!-- class="col-md-4" to put the image inside the box covering 4 columns -->
-                        <div class="card my-2">
-                            <!-- my-2   for margin for from the cards below it -->
-                            <img class="image-thumbnail" src="https://scontent.fnbo10-1.fna.fbcdn.net/v/t1.6435-9/39208442_2067004959977049_3743518753896267776_n.jpg?stp=dst-jpg_p640x640&_nc_cat=106&ccb=1-5&_nc_sid=e3f864&_nc_eui2=AeHaXAY2uE_x-udKeOp4f3xM-kKcI5GTZwP6QpwjkZNnA03m3pO1hUp7VEMiqDloj5sbqUjD0m-zpTMCCjyAOR48&_nc_ohc=agK-DLVoqA8AX90uVcB&_nc_ht=scontent.fnbo10-1.fna&oh=00_AT9ZrKUeeuSMrk10ZnfuUHgQbSfdPcabZm46lJBQ7GHiLQ&oe=6267CEED" alt="Card image cap">
+                {% for photo in photos %}
+                <div class="col-md-4">
+                    <!-- class="col-md-4" to put the image inside the box covering 4 columns -->
+                    <div class="card my-2">
+                        <!-- my-2   for margin for from the cards below it -->
+                        <img class="image-thumbnail" src="{{photo.image.url}}" alt="Card image cap">
 
-                            <div class="card-body">
-                                <small>Category:</small>
-                            </div>
-                            <a class="btn btn-outline-dark btn-sm m-1" href="{% url 'photo' 5 %}">View</a>
-                            <!-- {% url 'photo' 5 %} pointing to the url name -->
-                            <!-- class="col-md-4"  to create a hover effect of color black -->
-                            <!-- m-1   To create a margin for the button from top -->
+                        <div class="card-body">
+                            <small>Category:</small>
                         </div>
-                    </div>     
-                    
-                    <div class="col-md-4">
-                        <!-- class="col-md-4" to put the image inside the box covering 4 columns -->
-                        <div class="card my-2">
-                            <!-- my-2   for margin for from the cards below it -->
-                            <img class="image-thumbnail" src="https://scontent.fnbo10-1.fna.fbcdn.net/v/t1.6435-9/39208442_2067004959977049_3743518753896267776_n.jpg?stp=dst-jpg_p640x640&_nc_cat=106&ccb=1-5&_nc_sid=e3f864&_nc_eui2=AeHaXAY2uE_x-udKeOp4f3xM-kKcI5GTZwP6QpwjkZNnA03m3pO1hUp7VEMiqDloj5sbqUjD0m-zpTMCCjyAOR48&_nc_ohc=agK-DLVoqA8AX90uVcB&_nc_ht=scontent.fnbo10-1.fna&oh=00_AT9ZrKUeeuSMrk10ZnfuUHgQbSfdPcabZm46lJBQ7GHiLQ&oe=6267CEED" alt="Card image cap">
-
-                            <div class="card-body">
-                                <small>Category:</small>
-                            </div>
-                            <a class="btn btn-outline-dark btn-sm m-1" href="{% url 'photo' 5 %}">View</a>
-                            <!-- class="col-md-4"  to create a hover effect of color black -->
-                            <!-- m-1   To create a margin for the button from top -->
-                        </div>
-                    </div>  
-
-
-                    <div class="col-md-4">
-                        <!-- class="col-md-4" to put the image inside the box covering 4 columns -->
-                        <div class="card my-2">
-                            <!-- my-2   for margin for from the cards below it -->
-                            <img class="image-thumbnail" src="https://scontent.fnbo10-1.fna.fbcdn.net/v/t1.6435-9/39208442_2067004959977049_3743518753896267776_n.jpg?stp=dst-jpg_p640x640&_nc_cat=106&ccb=1-5&_nc_sid=e3f864&_nc_eui2=AeHaXAY2uE_x-udKeOp4f3xM-kKcI5GTZwP6QpwjkZNnA03m3pO1hUp7VEMiqDloj5sbqUjD0m-zpTMCCjyAOR48&_nc_ohc=agK-DLVoqA8AX90uVcB&_nc_ht=scontent.fnbo10-1.fna&oh=00_AT9ZrKUeeuSMrk10ZnfuUHgQbSfdPcabZm46lJBQ7GHiLQ&oe=6267CEED" alt="Card image cap">
-
-                            <div class="card-body">
-                                <small>Category:</small>
-                            </div>
-                            <a class="btn btn-outline-dark btn-sm m-1" href="{% url 'photo' 5 %}">View</a>
-                            <!-- class="col-md-4"  to create a hover effect of color black -->
-                            <!-- m-1   To create a margin for the button from top -->
-                        </div>
-                    </div>  
-
-
-                    <div class="col-md-4">
-                        <!-- class="col-md-4" to put the image inside the box covering 4 columns -->
-                        <div class="card my-2">
-                            <!-- my-2   for margin for from the cards below it -->
-                            <img class="image-thumbnail" src="https://scontent.fnbo10-1.fna.fbcdn.net/v/t1.6435-9/39208442_2067004959977049_3743518753896267776_n.jpg?stp=dst-jpg_p640x640&_nc_cat=106&ccb=1-5&_nc_sid=e3f864&_nc_eui2=AeHaXAY2uE_x-udKeOp4f3xM-kKcI5GTZwP6QpwjkZNnA03m3pO1hUp7VEMiqDloj5sbqUjD0m-zpTMCCjyAOR48&_nc_ohc=agK-DLVoqA8AX90uVcB&_nc_ht=scontent.fnbo10-1.fna&oh=00_AT9ZrKUeeuSMrk10ZnfuUHgQbSfdPcabZm46lJBQ7GHiLQ&oe=6267CEED" alt="Card image cap">
-
-                            <div class="card-body">
-                                <small>Category:</small>
-                            </div>
-                            <a class="btn btn-outline-dark btn-sm m-1" href="{% url 'photo' 5 %}">View</a>
-                            <!-- class="col-md-4"  to create a hover effect of color black -->
-                            <!-- m-1   To create a margin for the button from top -->
-                        </div>
-                    </div>  
-
-                    <div class="col-md-4">
-                        <!-- class="col-md-4" to put the image inside the box covering 4 columns -->
-                        <div class="card my-2">
-                            <!-- my-2   for margin for from the cards below it -->
-                            <img class="image-thumbnail" src="https://scontent.fnbo10-1.fna.fbcdn.net/v/t1.6435-9/39208442_2067004959977049_3743518753896267776_n.jpg?stp=dst-jpg_p640x640&_nc_cat=106&ccb=1-5&_nc_sid=e3f864&_nc_eui2=AeHaXAY2uE_x-udKeOp4f3xM-kKcI5GTZwP6QpwjkZNnA03m3pO1hUp7VEMiqDloj5sbqUjD0m-zpTMCCjyAOR48&_nc_ohc=agK-DLVoqA8AX90uVcB&_nc_ht=scontent.fnbo10-1.fna&oh=00_AT9ZrKUeeuSMrk10ZnfuUHgQbSfdPcabZm46lJBQ7GHiLQ&oe=6267CEED" alt="Card image cap">
-
-                            <div class="card-body">
-                                <small>Category:</small>
-                            </div>
-                            <a class="btn btn-outline-dark btn-sm m-1" href="{% url 'photo' 5 %}">View</a>
-                            <!-- class="col-md-4"  to create a hover effect of color black -->
-                            <!-- m-1   To create a margin for the button from top -->
-                        </div>
-                    </div>  
-
-
-
-                    <div class="col-md-4">
-                        <!-- class="col-md-4" to put the image inside the box covering 4 columns -->
-                        <div class="card my-2">
-                            <!-- my-2   for margin for from the cards below it -->
-                            <img class="image-thumbnail" src="https://scontent.fnbo10-1.fna.fbcdn.net/v/t1.6435-9/39208442_2067004959977049_3743518753896267776_n.jpg?stp=dst-jpg_p640x640&_nc_cat=106&ccb=1-5&_nc_sid=e3f864&_nc_eui2=AeHaXAY2uE_x-udKeOp4f3xM-kKcI5GTZwP6QpwjkZNnA03m3pO1hUp7VEMiqDloj5sbqUjD0m-zpTMCCjyAOR48&_nc_ohc=agK-DLVoqA8AX90uVcB&_nc_ht=scontent.fnbo10-1.fna&oh=00_AT9ZrKUeeuSMrk10ZnfuUHgQbSfdPcabZm46lJBQ7GHiLQ&oe=6267CEED" alt="Card image cap">
-
-                            <div class="card-body">
-                                <small>Category:</small>
-                            </div>
-                            <a class="btn btn-outline-dark btn-sm m-1" href="{% url 'photo' 5 %}">View</a>
-                            <!-- class="col-md-4"  to create a hover effect of color black -->
-                            <!-- m-1   To create a margin for the button from top -->
-                        </div>
-                    </div>  
-
-
-
-                    
+                        <a class="btn btn-outline-dark btn-sm m-1" href="{% url 'photo' 5 %}">View</a>
+                        <!-- {% url 'photo' 5 %} pointing to the url name -->
+                        <!-- class="col-md-4"  to create a hover effect of color black -->
+                        <!-- m-1   To create a margin for the button from top -->
+                    </div>
+                </div>  
+                {% empty%}
+                <h3>No photos uploaded</h3>
+                {% endfor %}
             </div>
-        </div>           
+        </div>    
     </div>
+
 </div>
 </body>
 
