@@ -60,11 +60,12 @@
                     <div class="card my-2">
                         <!-- my-2   for margin for from the cards below it -->
                         <img class="image-thumbnail" src="{{photo.image.url}}" alt="Card image cap">
+                                <!-- When capturing an image, we use .url, otherwise you will be capturing the whole folder -->
 
                         <div class="card-body">
                             <small>Category:</small>
                         </div>
-                        <a class="btn btn-outline-dark btn-sm m-1" href="{% url 'photo' 5 %}">View</a>
+                        <a class="btn btn-outline-dark btn-sm m-1" href="{% url 'photo' 5 %}">View this image</a>
                         <!-- {% url 'photo' 5 %} pointing to the url name -->
                         <!-- class="col-md-4"  to create a hover effect of color black -->
                         <!-- m-1   To create a margin for the button from top -->
