@@ -64,6 +64,7 @@
 
                         <div class="card-body">
                             <small>Category:{{photo.category.name}}</small>
+                            <!-- photo.category.name............ to capture data that has a foreign key -->
                         </div>
                         <a class="btn btn-outline-dark btn-sm m-1" href="{% url 'photo' photo.id %}">View this image</a>
                          <!-- 1)   url 'photo' pointing to the url name class="col-md-4"  to create a hover effect of color black -->
