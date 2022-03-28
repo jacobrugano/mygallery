@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import Category, Photo
 
 # Create your views here.
@@ -6,8 +6,8 @@ def gallery(request):
     categories = Category.objects.all() #To query the Database for categories from the Category model
     photos = Photo.objects.all()  #To query the Database for photos from the Photo model
     
-    # context = {'categories':categories, 'photos':photos}
-    return render(request, 'photos/gallery.html', {'categories':categories, 'photos':photos})
+    context = {'categories':categories, 'photos':photos}
+    return render(request, 'photos/gallery.html', context)
                                     # 'photos/gallery.html'...the path whwre we will output
                                     # context.....a variable holding the data we will output
                                     # Note: The curly braces cover the entire data to be outputted
@@ -21,8 +21,25 @@ def addPhoto(request):
     categories = Category.objects.all() #To query the Database for the photos we are adding
    
 
-#To check if the request type is a POST, and if so, go ahead and create an image.
-    if request.method == 'POST': 
-            data = request.POST
-            image = request.FILES.get('image')
+    if request.method == 'POST': #To check if the request type is a POST, and if so, go ahead and create an image.
+            data = request.POST   # But we first get the form data
+            image = request.FILES.get('image') #We also get the image. The name ...image... is the name of the UPLOAD button
+           
+            if data['category'] != 'none':
+                category = Category.objects.get(id=data['category'])
+            elif data['category_new'] != '':
+                category, created = Category.objects.get_or_create(
+                    # user=user,
+                    name=data['category_new'])
+            else:
+                category = None
+
+            # for image in images:
+                photo = Photo.objects.create(
+                    category=category,
+                    description=data['description'],
+                    image=image,
+            )
+
+            return redirect('gallery')
     return render(request, 'photos/add.html', {'categories':categories})
