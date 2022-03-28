@@ -63,12 +63,12 @@
                                 <!-- When capturing an image, we use .url, otherwise you will be capturing the whole folder -->
 
                         <div class="card-body">
-                            <small>Category:</small>
+                            <small>Category:{{photo.category.name}}</small>
                         </div>
-                        <a class="btn btn-outline-dark btn-sm m-1" href="{% url 'photo' 5 %}">View this image</a>
-                        <!-- {% url 'photo' 5 %} pointing to the url name -->
-                        <!-- class="col-md-4"  to create a hover effect of color black -->
-                        <!-- m-1   To create a margin for the button from top -->
+                        <a class="btn btn-outline-dark btn-sm m-1" href="{% url 'photo' photo.id %}">View this image</a>
+                         <!-- 1)   url 'photo' pointing to the url name class="col-md-4"  to create a hover effect of color black -->
+                         <!-- 2)   m-1   To create a margin for the button from top  -->
+                         <!-- 3)   photo.id    To attach the photo to the id -->
                     </div>
                 </div>  
                 {% empty%}
