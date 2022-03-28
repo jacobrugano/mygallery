@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from django.conf import settings
+from django.conf import settings    #To access settings file
 from django.conf.urls.static import static
 
 urlpatterns = [
@@ -25,5 +25,8 @@ urlpatterns = [
     path('', include('photos.urls')), #going into photos app then into urls file
 ]
 
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+#To direct the app where to find media items like images
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) #To direct the app where to find the images
+
+#To direct the app where to find media and other files like css
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
