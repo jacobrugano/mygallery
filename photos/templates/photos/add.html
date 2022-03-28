@@ -22,7 +22,10 @@
                 <!-- url 'gallery'....directs us back to view function gallery -->
                 <div class="card">
                     <form method='POST' action="" enctype="multipart/form-data">
+                                 <!-- POST bcos our form posts data to the db -->
+                                 <!-- multipart/form-data....to make the form send the form fields along with the images -->
                         {% csrf_token %}
+                                <!-- You can't send a POST request without a csrf token -->
 
                         <div class="form-group m-3">
                             <!-- m-3...margin all round -->
@@ -44,6 +47,7 @@
                             </select>
                         </div>
 
+
         <!-- To create your own category -->
                         <div class="form-group m-3">
                             <label>Create a new category</label>
@@ -56,6 +60,7 @@
                             <input required name="images" type="file" multiple class="form-control-file">
                         </div>
 
+        <!-- Button to submit file -->
                         <button type='submit' class="btn btn-primary m-3">Submit</button>
 
                     </form>

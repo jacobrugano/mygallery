@@ -19,4 +19,10 @@ def viewPhoto(request, pk):
 
 def addPhoto(request):
     categories = Category.objects.all() #To query the Database for the photos we are adding
+   
+
+#To check if the request type is a POST, and if so, go ahead and create an image.
+    if request.method == 'POST': 
+            data = request.POST
+            image = request.FILES.get('image')
     return render(request, 'photos/add.html', {'categories':categories})
