@@ -26,6 +26,7 @@ class Photo(models.Model):
                 #  on_delete=models.SET_NULL...so that deleting does not delete all photos with that key.
     image = models.ImageField(null=False, blank=False)
     description = models.TextField()
+                # TextField...does not need limits of letters to use like CharField 
 
     def __str__(self):
         return self.description
