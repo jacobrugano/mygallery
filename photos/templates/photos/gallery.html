@@ -37,14 +37,15 @@
                     Categories
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">
-                        <a>All</a>
-                    </li>
-                    <li class=" list-group-item">
-                        <a href=>
-                            Hi
-                        </a>
-                    </li>
+                    <li class="list-group-item"><a>All</a></li>
+
+            <!-- We create a loop to loop through the contents in the Content model -->
+                        {% for category in categories %} 
+                        <li class=" list-group-item"> {{category.name}} </li>
+                                <!-- {{category.name}}...to capture the name under the Category model -->
+                                <!-- The category names have been created in the Django admin -->
+                        {% endfor %}
+
                     <a href="{% url 'add' %}" class="btn btn-dark btn-block btn-sm m-1">Add Photo</a>
                            <!-- href="{% url 'add' %}"...refers you to the name:  add url in urls.py -->
 
