@@ -3,9 +3,16 @@ from .models import Category, Photo
 
 # Create your views here.
 def gallery(request):
-    categories = Category.objects.all() #To query the Database for categories from the Category model
-    photos = Photo.objects.all()  #To query the Database for photos from the Photo model
-    
+    # categories = Category.objects.all() #To query the Database for categories from the Category model
+    # photos = Photo.objects.all()  #To query the Database for photos from the Photo model
+
+    category = request.GET.get('category')
+    if category == None:
+        photos = Photo.objects.all()
+    else:
+        photos = Photo.objects.filter(category__name = category)
+
+    categories = Category.objects.all()
     context = {'categories':categories, 'photos':photos}
     return render(request, 'photos/gallery.html', context)
                                     # 'photos/gallery.html'...the path whwre we will output
@@ -15,7 +22,7 @@ def gallery(request):
 def viewPhoto(request, pk):
     photo = Photo.objects.get(id=pk) # get...bcos we are not capturing everything
                                      # id=pk...we capture the photo by the id which is the primary key
-    return render(request, 'photos/photo.html', {'photo':photo})
+    return render(request, 'photos/photo.html', {'photo': photo})
 
 def addPhoto(request):
     categories = Category.objects.all() #To query the Database for the photos we are adding
@@ -39,7 +46,8 @@ def addPhoto(request):
                     category=category,
                     description=data['description'],
                     image=image,
-            )
+                )
 
             return redirect('gallery')
-    return render(request, 'photos/add.html', {'categories':categories})
+    context = {'categories': categories}
+    return render(request, 'photos/add.html', context)
