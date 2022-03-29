@@ -12,23 +12,27 @@
 
 </head>
 
-<body class="m-5">
-    <div class="row">
-        <div class="col-md-6">
-            <a href="{% url 'gallery' %}" class="btn btn-dark my-3">Go Back</a>
-                         <!-- Goes back to view function when clicked -->
-            <div class="card">
-                <img style="max-width: 60%; max-height: 60%;" src="{{photo.image.url}}" alt="Card image cap">
-                    <!-- "max-width: 100%; max-height: 100%;".....to size the image -->
-                    <!-- photo description....description from model Photo -->
+<body class="m-5" style="background-image: url(https://images.pexels.com/photos/326311/pexels-photo-326311.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1); background-attachment: fixed;">
+    <div class="container-fluid">
+        <div class="container-fluid">
+            <div class="col-lg-11">
+                <a href="{% url 'gallery' %}" class="btn btn-dark my-3">Go Back</a>
+                             <!-- Goes back to view function when clicked -->
+                <div class="card">
+                    <img style="max-width: 60%; max-height: 60%;" src="{{photo.image.url}}" alt="Card image cap">
+                        <!-- "max-width: 100%; max-height: 100%;".....to size the image -->
+                        <!-- photo description....description from model Photo -->
+                </div>
             </div>
-        </div>
-        <div class="col-md-6">
-            <div class="card">
-                <p> <strong> {{photo.description}} </strong></p>
-                     <!-- photo.description....description from model Photo -->
+            <br>
+            <div class="col-md-11">
+                <div class="card">
+                    <p> <strong> {{photo.description}} </strong></p>
+                         <!-- photo.description....description from model Photo -->
+                </div>
             </div>
-        </div>
+        </div>         
+
     </div>
 </body>
 </html>
